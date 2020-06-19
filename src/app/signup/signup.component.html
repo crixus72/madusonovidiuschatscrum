@@ -1,0 +1,29 @@
+<div class="container-fluid">
+  <h6>{{ userSignupForm.value | json }}</h6>
+
+    <h1>Create an account!</h1>
+    <form #userSignupForm = "ngForm">
+      <div class="form_group">
+        <label>Email</label>
+        <input type="email" name="email" class="form-control" ngModel>
+      </div>
+
+      <div class="form_group">
+        <label>Full Name</label>
+        <input type="text" class="form-control" name="fullname" ngModel>
+      </div>
+
+      <div class="form_group">
+        <label>Password</label>
+        <input type="password" class="form-control" name="password" ngModel>
+      </div>
+
+      <div class="form_group">
+        <label>User Type</label>
+        <select class="custom-select" name="usertype" ngModel>
+          <option *ngFor = "let user of userTypes">{{ user }}</option>
+        </select>
+      </div>
+
+    </form>
+</div>
