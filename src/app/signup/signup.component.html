@@ -1,26 +1,47 @@
 <div class="container-fluid">
   <h6>{{ userSignupForm.value | json }}</h6>
+  <br>
+  <p>{{ scrumUserModel | json }}</p>
+
+  <h5 id="display"></h5>
+
 
     <h1>Create an account!</h1>
-    <form #userSignupForm = "ngForm">
+    <form #userSignupForm = "ngForm" novalidate (ngSubmit)="onSubmit()">
       <div class="form_group">
         <label>Email</label>
-        <input type="email" name="email" class="form-control" ngModel>
+        <input type="email" required name="email" pattern="[a-z0-9]+@[a-z0-9]+\.[a-z]{3}$"
+               [class.is-invalid]="email.invalid && email.touched" #email=ngModel class="form-control" [(ngModel)]="scrumUserModel.email">
+        <div *ngIf="email.errors && (email.invalid || email.touched)">
+          <small class="text-danger" *ngIf="email.errors.required">Please enter your email</small>
+          <small class="text-danger" *ngIf="email.errors.pattern">Email should contain "@" and a "domain.com"</small>
+
+        </div>
       </div>
 
       <div class="form_group">
         <label>Full Name</label>
-        <input type="text" class="form-control" name="fullname" ngModel>
+        <input type="text" required class="form-control" name="fullname" #fullname='ngModel' [class.is-invalid]="fullname.invalid
+        && fullname.touched" [(ngModel)]='scrumUserModel.fullname'>
+        <div *ngIf="fullname.errors && (fullname.invalid || fullname.touched)">
+          <small class="text-danger" *ngIf="fullname.errors.required">Please enter a Fullname</small>
+        </div>
       </div>
 
       <div class="form_group">
         <label>Password</label>
-        <input type="password" class="form-control" name="password" ngModel>
+        <input type="password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[!@#$&()\\-`.+,/\']).{8,15}" class="form-control" name="password" #password='ngModel'
+               [class.is-invalid]="password.invalid && password.touched" [(ngModel)]="scrumUserModel.password">
+          <div *ngIf="password.errors && (password.invalid || password.touched)">
+          <small class="text-danger" *ngIf="password.errors.required">Please enter a password</small>
+          <small class="text-danger" *ngIf="password.errors.pattern">Password must be at least 8 characters long and
+            contain a number and special characters(!@#$&()-`.+,/\) </small>
+        </div>
       </div>
 
       <div class="form_group">
         <label>User Type</label>
-        <select class="custom-select" name="usertype" ngModel>
+        <select class="custom-select" name="usertype" [(ngModel)]="scrumUserModel.usertype">
           <option *ngFor = "let user of userTypes">{{ user }}</option>
         </select>
       </div>
