@@ -12,9 +12,9 @@ export class SignupComponent implements OnInit {
 
   constructor(private _scrumdataService: ScrumdataService) { }
   userTypes = ['Developer', 'Owner'];
-  scrumUserModel = new Scrumuser('', '', '', '', '')
+  scrumUserModel = new Scrumuser('', '', '', '', '');
   onSubmit(){
-    console.log(this.scrumUserModel)
+    console.log(this.scrumUserModel);
     this._scrumdataService.signup(this.scrumUserModel).subscribe(
       data => document.getElementById('display').innerHTML = ('Your account has been created successfully'),
             error => console.error('Error', error)
