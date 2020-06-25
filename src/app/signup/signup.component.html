@@ -13,7 +13,7 @@
         <input type="email" required name="email" pattern="[^@]+@[^@]+\.[a-zA-Z]{1,}"
                [class.is-invalid]="email.invalid && email.touched" #email=ngModel class="form-control" [(ngModel)]="scrumUserModel.email">
         <div *ngIf="email.errors && (email.invalid || email.touched)">
-          <small class="text-danger" [class.d-none] *ngIf="email.errors.required && email.touched">Please enter your email</small>
+          <small class="text-danger" *ngIf="email.errors.required && email.touched">Please enter your email</small>
           <small class="text-danger" *ngIf="email.errors.pattern">Email should contain "@" and a "domain.com"</small>
         </div>
       </div>
@@ -44,7 +44,6 @@
           <option *ngFor = "let user of userTypes">{{ user }}</option>
         </select>
       </div>
-      <button class="btn btn-primary" >Signup</button>
-
+      <button class="btn btn-primary" [disabled]="userSignupForm.invalid">Signup</button>
     </form>
 </div>

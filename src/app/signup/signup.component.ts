@@ -13,6 +13,7 @@ export class SignupComponent implements OnInit {
   constructor(private _scrumdataService: ScrumdataService) { }
   userTypes = ['Developer', 'Owner'];
   scrumUserModel = new Scrumuser('', '', '', '', '');
+
   onSubmit(){
     console.log(this.scrumUserModel);
     this._scrumdataService.signup(this.scrumUserModel).subscribe(
