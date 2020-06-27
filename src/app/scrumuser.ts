@@ -3,9 +3,13 @@ export class Scrumuser {
     public email: string,
     public fullname: string,
     public password: string,
+    public projname: string,
     public usertype: string,
-    public project: string,
     ){}
+
+  toBeTruthy():any {
+    throw new Error('Method not implemented');
+  }
 }
 
 export class Scrumuserdata {

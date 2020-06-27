@@ -17,11 +17,11 @@ export class ScrumdataService {
 
   signup(user: Scrumuser) {
     return this._http.post<any>(this._url, {'email': user['email'], 'full_name': user['fullname'],
-    'password': user['password'], 'usertype': user['usertype'], 'project': user['project']}, this.httpOptions);
+    'password': user['password'], 'usertype': user['usertype'], 'projname': user['projname']}, this.httpOptions);
   }
 
   login(user: Scrumuserdata){
     return this._http.post<any>(this._loginurl, {'username': user['email'],
-    'password': user['password']}, this.httpOptions);
+    'password': user['password'], 'project': user['project']}, this.httpOptions);
   }
 }

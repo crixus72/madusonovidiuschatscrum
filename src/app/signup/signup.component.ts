@@ -17,7 +17,7 @@ export class SignupComponent implements OnInit {
   onSubmit(){
     console.log(this.scrumUserModel);
     this._scrumdataService.signup(this.scrumUserModel).subscribe(
-      data => document.getElementById('display').innerHTML = ('Your account has been created successfully'),
+      data => console.log('Sucess', data),
             error => console.error('Error', error)
     );
   }
