@@ -38,6 +38,17 @@
         </div>
       </div>
 
+       <div class="form_group">
+        <label>Project Name</label>
+        <input type="text" required class="form-control" name="project" #project='ngModel' [class.is-invalid]="project.touched" [(ngModel)]='scrumUserModel.project'>
+        <div *ngIf="project.errors && (project.invalid || project.touched)">
+          <small class="text-danger" *ngIf="project.errors.required && project.touched">Please enter a Project name</small>
+          <small class="text-danger" *ngIf="project.errors.invalid && project.touched">Please enter a valid name</small>
+
+        </div>
+       </div>
+
+
       <div class="form_group">
         <label>User Type</label>
         <select class="custom-select" name="usertype" [(ngModel)]="scrumUserModel.usertype">
