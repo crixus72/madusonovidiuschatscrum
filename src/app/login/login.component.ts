@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ScrumdataService} from '../scrumdata.service';
 import {Scrumuserdata} from '../scrumuser';
+import {Router} from '@angular/router';
 
 
 @Component({
@@ -11,12 +12,16 @@ import {Scrumuserdata} from '../scrumuser';
 export class LoginComponent implements OnInit {
   scrumUserLoginData = new Scrumuserdata('', '', '')
 
- constructor(private _scrumdataService: ScrumdataService) { }
+ constructor(private _scrumdataService: ScrumdataService, private _router: Router) { }
 
  onLoginSubmit() {
    console.log(this.scrumUserLoginData)
    this._scrumdataService.login(this.scrumUserLoginData).subscribe(
-     data => console.log('Success', data),
+     data => {
+       console.log('Success', data),
+         localStorage.setItem('token', data.token);
+       this._router.navigate(['/scrumboard']);
+     },
      error => console.error('Error', error)
    );
  }
