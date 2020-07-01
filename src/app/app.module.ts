@@ -9,6 +9,7 @@ import {FormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import { ScrumboardComponent } from './scrumboard/scrumboard.component';
 import { HomepageComponent } from './homepage/homepage.component';
+import {AuthGuard} from "./auth.guard";
 
 // @ts-ignore
 // @ts-ignore
@@ -26,7 +27,7 @@ import { HomepageComponent } from './homepage/homepage.component';
     HttpClientModule,
     AppRoutingModule,
   ],
-  providers: [],
+  providers: [AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

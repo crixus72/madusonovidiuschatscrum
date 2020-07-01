@@ -38,18 +38,18 @@
         </div>
       </div>
 
-       <div class="form_group">
-        <label>Project Name</label>
-        <input type="text" required class="form-control" name="projname" [(ngModel)]='scrumUserModel.projname'>
-       </div>
-
-
       <div class="form_group">
         <label>User Type</label>
         <select class="custom-select" name="usertype" [(ngModel)]="scrumUserModel.usertype">
           <option *ngFor = "let user of userTypes">{{ user }}</option>
         </select>
       </div>
+
+       <div class="form_group">
+        <label>Project Name</label>
+        <input type="text" required class="form-control" name="projname" [(ngModel)]='scrumUserModel.projname' [disabled]="scrumUserModel.usertype=='Developer'">
+       </div>
       <button class="btn btn-primary" [disabled]="userSignupForm.invalid">Signup</button>
     </form>
+  <p>Already have an account?| Login here<button><a routerLink="/login">Login</a></button></p>
 </div>
