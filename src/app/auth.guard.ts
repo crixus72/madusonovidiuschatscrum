@@ -8,12 +8,12 @@ import {ScrumdataService} from './scrumdata.service';
 })
 export class AuthGuard implements CanActivate {
   constructor(private _scrumdataService: ScrumdataService, private _router: Router){}
-  canActivate(): Boolean {
+  canActivate(): boolean {
     if (this._scrumdataService.loggedIn()){
-      return true
+      return true;
     } else {
-      this._router.navigate(["/login"])
-      return false
+      this._router.navigate(['/login'])
+      return false;
     }
   }
 
