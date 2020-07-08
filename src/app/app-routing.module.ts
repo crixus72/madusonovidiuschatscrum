@@ -13,6 +13,7 @@ const routes: Routes = [
   {path: 'signup', component: SignupComponent},
   {path: 'login', component: LoginComponent},
   {path: 'scrumboard/:project_id', component: ScrumboardComponent, canActivate: [AuthGuard]},
+  {path: 'scrumboard', component: ScrumboardComponent, canActivate: [AuthGuard]}
 ];
 
 @NgModule({
