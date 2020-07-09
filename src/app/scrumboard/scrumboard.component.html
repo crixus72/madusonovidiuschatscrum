@@ -1,3 +1,50 @@
-<p>This is the scrum board</p>
+<table *ngFor="let participant of _participants" class="table">
+    {{ participant['user']['nickname'] }}
+
+  <tr>
+    <th>Tasks for the week</th>
+    <th>Tasks for the day</th>
+    <th>Verified</th>
+    <th>Done</th>
+  </tr>
+
+  <tr>
+    <td>
+      <div *ngFor="let goal of participant['scrumgoal_set']">
+        <div *ngIf="goal['status'] == 0 && goal['user'] == participant['id']">
+          {{ goal['name'] }}
+          {{ goal['id'] }}
+        </div>
+      </div>
+    </td>
+
+    <td>
+      <div *ngFor="let goal of participant['scrumgoal_set']">
+        <div *ngIf="goal['status'] == 1 && goal['user'] == participant['id']">
+          {{ goal['name'] }}
+          {{ goal['id'] }}
+        </div>
+      </div>
+    </td>
+
+    <td>
+      <div *ngFor="let goal of participant['scrumgoal_set']">
+        <div *ngIf="goal['status'] == 2 && goal['user'] == participant['id']">
+          {{ goal['name'] }}
+          {{ goal['id'] }}
+        </div>
+      </div>
+    </td>
+
+    <td>
+      <div *ngFor="let goal of participant['scrumgoal_set']">
+        <div *ngIf="goal['status'] == 3 && goal['user'] == participant['id']">
+          {{ goal['name'] }}
+          {{ goal['id'] }}
+        </div>
+      </div>
+    </td>
+  </tr>
+</table>
 
 <button><a routerLink="/home">Go home</a></button>
