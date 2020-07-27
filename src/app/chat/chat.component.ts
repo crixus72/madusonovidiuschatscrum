@@ -72,7 +72,7 @@ export class ChatComponent implements OnInit {
     return new Date().toLocaleTimeString().replace(/([\d]+:[\d]{2})(:[\d]{2})(.*)/, "$1$3")
   }
 
-  sendMessage(chat_text){
+  sendMessage(){
     // const chat_text = this.scrumLoginUserModel.project_name;
     // let chat_text = document.getElementById("chat_text").textContent
     console.log(this.chat_text);
