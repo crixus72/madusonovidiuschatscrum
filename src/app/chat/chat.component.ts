@@ -78,10 +78,10 @@ export class ChatComponent implements OnInit {
     // let chat_text = document.getElementById("chat_text").textContent
     console.log(this.chat_text);
     if(this.chat_text !== ""){
-      const context = {action: 'sendMessage',
-       username: this.getUsername(),
-       content: this.chat_text,
-        timestamp: this.getCurrentTime()};
+      const context = {"action": 'sendMessage',
+       "username": this.getUsername(),
+       "content": this.chat_text,
+        "timestamp": this.getCurrentTime()};
 
       this.websocketConnection.send(JSON.stringify(context))
       console.log(context);
