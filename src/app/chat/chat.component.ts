@@ -13,10 +13,10 @@ export class ChatComponent implements OnInit {
 
   constructor( private _route: ActivatedRoute,  private _router: Router, private wsService: WebsocketService) {
     this.websocketConnection = new WebSocket(this.WS_URL);
-    console.log('connect', this.websocketConnection)
+    console.log('connect', this.websocketConnection);
   }
-  WS_URL: string ="wss://hk98yb4zrh.execute-api.us-east-2.amazonaws.com/teststage"
-  websocketConnection: WebSocket ;
+  WS_URL: string ="wss://83ozfd8bq1.execute-api.us-east-1.amazonaws.com/dev"
+  websocketConnection: WebSocket;
   messages: Array<object> =[]
   chat_text: string;
   logincred: any;
