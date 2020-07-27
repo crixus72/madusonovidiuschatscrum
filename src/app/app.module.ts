@@ -10,6 +10,11 @@ import {HttpClientModule} from '@angular/common/http';
 import { ScrumboardComponent } from './scrumboard/scrumboard.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import {AuthGuard} from "./auth.guard";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {DragDropModule} from '@angular/cdk/drag-drop';
+import { CreateprojectComponent } from './createproject/createproject.component';
+import { ChangeroleComponent } from './changerole/changerole.component';
+import { ChatComponent } from './chat/chat.component';
 
 // @ts-ignore
 // @ts-ignore
@@ -19,13 +24,18 @@ import {AuthGuard} from "./auth.guard";
     SignupComponent,
     LoginComponent,
     ScrumboardComponent,
-    HomepageComponent
+    HomepageComponent,
+    CreateprojectComponent,
+    ChangeroleComponent,
+    ChatComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpClientModule,
     AppRoutingModule,
+    BrowserAnimationsModule,
+    DragDropModule,
   ],
   providers: [AuthGuard],
   bootstrap: [AppComponent]

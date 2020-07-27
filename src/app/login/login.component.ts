@@ -20,6 +20,8 @@ export class LoginComponent implements OnInit {
      data => {
        console.log('Success', data),
          localStorage.setItem('token', data.token);
+       localStorage.setItem('Authuser', JSON.stringify(this.scrumUserLoginData));
+       localStorage.setItem('Authobj', JSON.stringify(data));
        this._router.navigate(['/scrumboard', data['project_id']]);
      },
      error => console.error('Error', error)
