@@ -41,7 +41,7 @@ export class ChatComponent implements OnInit {
         console.log("Array "+ this.messages);
         this.messages.forEach((message) => {
           console.log("allmessages " + message );
-          console.log(this.messages;
+          console.log(this.messages);
         });
       }
     };
