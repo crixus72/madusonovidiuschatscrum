@@ -12,10 +12,10 @@ import { ActivatedRoute, Router  } from '@angular/router';
 export class ChatComponent implements OnInit {
 
   constructor( private _route: ActivatedRoute,  private _router: Router, private wsService: WebsocketService) {
-    this.websocketConnection = new WebSocket('wss://terzi305yg.execute-api.us-east-2.amazonaws.com/test');
+    this.websocketConnection = new WebSocket(this.WS_URL);
     console.log('connect', this.websocketConnection);
   }
-  WS_URL: string ="wss://terzi305yg.execute-api.us-east-2.amazonaws.com/test"
+  WS_URL: string ="wss://hk98yb4zrh.execute-api.us-east-2.amazonaws.com/teststage"
   websocketConnection: WebSocket;
   messages: Array<object> = []
   chat_text: string;
