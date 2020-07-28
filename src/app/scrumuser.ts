@@ -20,3 +20,10 @@ export class Scrumuserdata {
     ){}
 }
 
+export class ScrumUserLoginData {
+    constructor(
+        public email: string,
+        public password: string,
+        public project: string,
+    ) { }
+}
