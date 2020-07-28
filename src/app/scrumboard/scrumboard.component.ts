@@ -43,12 +43,12 @@ export class ScrumboardComponent implements OnInit {
     this._scrumdataService.allProjectGoals(this.project_id).subscribe(
       data => {
         console.log(data)
-        this._participants = data['data']
+        this._participants = data['data'];
         this.role = JSON.parse(localStorage.getItem('Authobj'));
         this.rolee = this.role.role;
         this.username = this.role.name;
         this.id = this.role.role_id;
-        console.log(this._participants)
+        console.log(this._participants);
         for (let participant of this._participants ){
           if (participant['user']['nickname'] == this.username){
             for (let goal of participant['scrumgoal_set']){
@@ -137,24 +137,23 @@ export class ScrumboardComponent implements OnInit {
   }
 
   onClick(task_for_the_week) {
-    let user = task_for_the_week['user']['id']
+    let user = task_for_the_week['user']['id'];
     localStorage.setItem('goal', JSON.stringify(task_for_the_week["id"]));
     this._router.navigate(['creategoal/', user]);
   }
-  /**
   startSprint() {
     this.projectid = JSON.parse(localStorage.getItem('Authobj'));
     this._scrumdataService.createSprint(this.projectid.project_id).subscribe(
       data => {
-        this.feedback = "sprint just started"
+        this.feedback = "sprint just started";
         console.log("successfull: sprint : " + data["message"])
       },
       error => {
         console.log('sprint error', JSON.stringify(error));
         this.feedback = "Sprint Started";
       }
-    )
-  }*/
+    );
+  }
 
   onClickrole(participant) {
     this._router.navigate(['changerole/', participant["id"]]);
